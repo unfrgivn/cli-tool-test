@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.3](https://github.com/unfrgivn/cli-tool-test/compare/v0.2.2...v0.2.3) (2024-07-07)
+
+
+### Bug Fixes
+
+* adding release asset ([16a4a62](https://github.com/unfrgivn/cli-tool-test/commit/16a4a62612e11eae976f7e6587bcd6c2c702af8c))
+
 ## [0.2.2](https://github.com/unfrgivn/cli-tool-test/compare/v0.2.1...v0.2.2) (2024-07-07)
 
 
