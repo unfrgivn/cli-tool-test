@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.2.4](https://github.com/unfrgivn/cli-tool-test/compare/v0.2.3...v0.2.4) (2024-07-07)
+
+
+### Bug Fixes
+
+* testing fix commit ([45dc61e](https://github.com/unfrgivn/cli-tool-test/commit/45dc61e91ea8b4d50c76eafb783c96e51d875e19))
+
 ## [0.2.3](https://github.com/unfrgivn/cli-tool-test/compare/v0.2.2...v0.2.3) (2024-07-07)
 
 
