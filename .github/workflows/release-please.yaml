@@ -26,7 +26,7 @@ jobs:
         with:
           # The name of the homebrew tap to publish your formula to as it appears on GitHub.
           homebrew_owner: unfrgivn
-          homebrew_tap: homebrew-test
+          homebrew_tap: homebrew-packages
 
           # The name of the folder in your homebrew tap where formula will be committed to.
           formula_folder: formula
