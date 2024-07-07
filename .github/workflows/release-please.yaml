@@ -18,6 +18,21 @@ jobs:
       - uses: googleapis/release-please-action@v4
         id: release
 
+      # Get release without the leading 'v'
+      - name: Get release version
+        run: |
+          VERSION=${{ steps.release.outputs.tag_name }}
+          echo "VERSION=${VERSION:1}" >> $GITHUB_ENV
+
+      - name: Upload package artifact
+        if: ${{ steps.release.outputs.release_created }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          PACKAGE_ARCHIVE_DARWIN_ARM64=${{ github.event.repository.name }}-${{ env.VERSION }}-darwin-arm64.tar.gz 
+          mv ./test.tar.gz ./dist/${PACKAGE_ARCHIVE_DARWIN_ARM64}
+          gh release upload ${{ steps.release.outputs.tag_name }} ./dist/${PACKAGE_ARCHIVE_DARWIN_ARM64}
+
       - name: Release my project to my Homebrew tap
         # uses: Justintime50/homebrew-releaser@v1
         uses: unfrgivn/homebrew-releaser@main
@@ -64,7 +79,7 @@ jobs:
           # Darwin AMD pre-existing path example: https://github.com/justintime50/myrepo/releases/download/v1.2.0/myrepo-1.2.0-darwin-amd64.tar.gz
           # Linux ARM pre-existing path example: https://github.com/justintime50/myrepo/releases/download/v1.2.0/myrepo-1.2.0-linux-arm64.tar.gz
           target_darwin_amd64: false
-          target_darwin_arm64: false
+          target_darwin_arm64: true
           target_linux_amd64: false
           target_linux_arm64: false
 
