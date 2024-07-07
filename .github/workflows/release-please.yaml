@@ -30,8 +30,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           PACKAGE_ARCHIVE_DARWIN_ARM64=${{ github.event.repository.name }}-${{ env.VERSION }}-darwin-arm64.tar.gz 
-          mv ./test.tar.gz ./dist/${PACKAGE_ARCHIVE_DARWIN_ARM64}
-          gh release upload ${{ steps.release.outputs.tag_name }} ./dist/${PACKAGE_ARCHIVE_DARWIN_ARM64}
+          mv ./test.tar.gz ./${PACKAGE_ARCHIVE_DARWIN_ARM64}
+          gh release upload ${{ steps.release.outputs.tag_name }} ./${PACKAGE_ARCHIVE_DARWIN_ARM64}
 
       - name: Release my project to my Homebrew tap
         # uses: Justintime50/homebrew-releaser@v1
